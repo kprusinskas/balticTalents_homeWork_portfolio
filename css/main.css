@@ -106,7 +106,7 @@ header.container > .row {
 }
 
 footer.container > .row {
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 
@@ -349,13 +349,23 @@ header {
 }
 
 .home-bg-overlay {
-  background-color: #5e5e5e;
-  background-blend-mode: hard-light;
+  position: absolute;
+  /* display: inline-block; */
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
 }
 
-  #home > .row > .welcome-text {
-  text-align: center;
+  #home > .row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  #home > .row > .welcome-text {
+    text-align: center;
+  }
+
     #home .row > .welcome-text > span {
       font-size: 55px;
       font-weight: 300;
@@ -366,6 +376,9 @@ header {
       font-weight: 400;
       letter-spacing: 1px;
       color: var(--color-text-bright);
+    }
+    #home .row > .welcome-text > a {
+      margin-top: 20px;
     }
 
 /*----------------------------------------------* ABOUT ME *-----*/
@@ -382,8 +395,6 @@ header {
   #about .profile-img > img {
     width: 100%;
     background-size: contain;
-
-
   }
 
 #about .about-content {
@@ -532,6 +543,94 @@ header {
 
 /*----------------------------------------------* MY PORTFOLIO *-----*/
 
+.gallery {
+  display: inline-block;
+  width: 100%;
+  /* overflow: hidden; */
+}
+  .gallery > .filter {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+      .gallery > .filter > .item {
+          display: inline-block;
+          padding: 0 10px;
+          cursor: pointer;
+      }
+      .gallery > .filter > .item:hover,
+      .gallery > .filter > .item.active {
+          color: #f34236;
+      }
+  .gallery > .list {
+      display: inline-block;
+      width: calc(100% + 20px);
+      margin-left: -10px;
+  }
+      .gallery > .list > .item {
+          display: inline-block;
+          width: calc( (100% - 60px) / 3 );
+          height: 320px;
+          float: left;
+          margin: 0 10px 20px 10px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          border-radius: 4px;
+          border: 10px solid #FFF;
+          position: relative;
+          background-size: cover;
+      }
+          .gallery > .list > .item .black {
+              display: none;
+          }
+          .gallery > .list > .item .texts {
+              display: none;
+          }
+
+          .gallery > .list > .item:hover > .black {
+              display: block;
+              background-color: rgba(0,0,0,0.7);
+              width: 100%;
+              height: 100%;
+          }
+          .gallery > .list > .item:hover > .texts {
+              display: block;
+              position: absolute;
+              top: 20px;
+              left: 20px;
+          }
+              .gallery > .list > .item:hover .title {
+                  color: #FFF;
+                  font-size: 24px;
+                  line-height: 30px;
+              }
+              .gallery > .list > .item:hover .tag {
+                  display: inline-block;
+                  background-color: red;
+                  color: #FFF;
+                  font-size: 16px;
+                  line-height: 20px;
+                  padding: 5px 10px;
+              }
+
+  @media ( max-width: 1040px ) {
+      .gallery > .list > .item {
+          height: 240px;
+      }
+  }
+  @media ( max-width: 800px ) {
+      .gallery > .list > .item {
+          width: calc( (100% - 20px) / 2 );
+          height: 230px;
+      }
+  }
+  @media ( max-width: 520px ) {
+      .gallery > .list > .item {
+          width: 100%;
+          height: 230px;
+      }
+  }
+
 /*----------------------------------------------* SLIDESHOW *-----*/
 
 .slideshow {
@@ -545,7 +644,7 @@ header {
     width: 100px;
     height: 100px;
     margin-bottom: 20px;
-    background-image: url(../img/profile.jpg);
+    /* background-image: url(../img/profile.jpg); */
     background-size: contain;
     background-position: center;
     border-radius: 50%;
@@ -598,13 +697,15 @@ header {
   }
     .slideshow-dots > .slideshow-dot:hover {
       background-color: var(--color-bg-grey-darker);
+      border: 3px solid var(--color-bg-grey);
       cursor: pointer;
     }
   .slideshow-dots > .slideshow-dot.active {
-    background-color: var(--color-main);
+    background-color: var(--color-main-dark);
   }
     .slideshow-dots > .slideshow-dot.active:hover {
-      background-color: var(--color-main-dark);
+      background-color: var(--color-main);
+      border: 3px solid var(--color-main-dark);
     }
 /*----------------------------------------------* MY BLOGS *-----*/
 
@@ -769,6 +870,7 @@ header {
         text-decoration: none;
         color: var(--color-main);
       }
+
 /*----------------------------------------------* FOOTER *-----*/
 
 footer > .row {
@@ -787,7 +889,7 @@ footer > .row {
     footer span:last-child {
       font-size: 12px;
       line-height: 16px;
-      padding-top: 50px;
+      padding-top: 60px;
       color: var(--color-text-grey-dark);
     }
 

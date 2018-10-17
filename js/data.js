@@ -65,6 +65,60 @@ var socials = [
         }
     ],
 
+    gallery_info = [
+        {
+            title: 'Illustration Work',
+            tag: 'Illustration',
+            img: 'illustration.jpg'
+        },
+        {
+            title: 'Photoshop Work',
+            tag: 'photoshop',
+            img: 'photoshop.jpg'
+        },
+        {
+            title: 'Illustration Work',
+            tag: 'illustration',
+            img: 'illustration1.jpg'
+        },
+        {
+            title: 'Photoshop Work',
+            tag: 'photoshop',
+            img: 'photoshop1.jpg'
+        },
+        {
+            title: 'Website Work',
+            tag: 'Website',
+            img: 'website.jpg'
+        },
+        {
+            title: 'Apps Work',
+            tag: 'App',
+            img: 'apps.jpg'
+        }
+    ],
+
+    slideshow_info = [
+        {
+            img: 'client1.jpg',
+            review: 'The new common language will be more simple and regular than. It will be more Occidental in fact. The new common language will be more simple and regular than. It will be more Occidental in fact.',
+            name: '- Ms. Mandy Doe',
+            title: 'Founder of Dandy'
+        },
+        {
+            img: 'client2.jpg',
+            review: 'The new common language will be more simple and regular than. It will be more Occidental in fact. The new common language will be more simple and regular than. It will be more Occidental in fact.',
+            name: '- Ms. Candy Joe',
+            title: 'Founder of Jandy'
+        },
+        {
+            img: 'client3.jpg',
+            review: 'The new common language will be more simple and regular than. It will be more Occidental in fact. The new common language will be more simple and regular than. It will be more Occidental in fact.',
+            name: '- Ms. Dandy Moe',
+            title: 'Founder of Mandy'
+        }
+    ],
+
     blog_info = [
         {
             photo: 'blog1.jpg',
@@ -87,7 +141,7 @@ var socials = [
             date: '25th Oct 2017',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt sit amet erat malesuada interdum. Aenean sodales dui quis leo fermentum scelerisque.'
         }
-    ]
+    ],
 
     contact_info = [
         {

@@ -11,7 +11,7 @@ function pageScroll() {
 }
 
 function changeActiveMenuItem() {
-    var top = $(window).scrollTop() + 45,
+    var top = $(window).scrollTop() + 120,
         nuorodu_kiekis = $('#main_nav > a').length,
         nuorodos_tekstas = '';
 
@@ -69,9 +69,62 @@ function resumeSection( list, title, target ) {
                     </div>';
         }
         $(target).html(HTML);
-      }
+    }
     return;
 }
+//------------------------------------------------------- MY PORTFOLIO
+function gallerySection( target, data ) {
+    if ( data.length === 0 ) {
+        HTML = 'NO WORKS FOR TODAY... :( COME BACK LATER ;)';
+        return $(target).html(HTML);
+    }
+    var panaudoti_tagai = [],
+        kiekis = data.length,
+        tagas = '',
+        HTML = '<div class="gallery">\
+                    <div class="filter">\
+                        <div class="item active">ALL</div>';
+                for ( var o=0; o<kiekis; o++) {
+                    tagas = data[o].tag.toLowerCase();
+                    if ( panaudoti_tagai.indexOf(tagas) === -1 ) {
+                        HTML += '<div class="item">'+tagas+'</div>';
+                        panaudoti_tagai.push(tagas);
+                    }
+                }
+            HTML += '</div>\
+                    <div class="list">';
+                for ( var i=0; i<kiekis; i++ ) {
+                    HTML += '<div class="item" data-tag="'+data[i].tag.toLowerCase()+'"\
+                                style="background-image: url(img/gallery/'+data[i].img+');">\
+                                <div class="black"></div>\
+                                <div class="texts">\
+                                    <div class="title">'+data[i].title+'</div>\
+                                    <div class="tag">'+data[i].tag+'</div>\
+                                </div>\
+                            </div>';
+                }
+            HTML += '</div>\
+                </div>';
+
+
+    // document.getElementById('portfolio_gallery').innerHTML = HTML;
+    return $(target).html(HTML);
+}
+//------------------------------------------------------- MY SLIDESHOW
+function slideshowSection( target, data_list ) {
+    var ilgis = data_list.length,
+        HTML = '';
+        for ( var i=0; i<ilgis; i++ ) {
+            HTML += '<div class="slideshow">\
+                        <div class="slideshow-img" style="background-image: url(img/slideshow/'+data_list[i].img+')"></div>\
+                        <p class="slideshow-clientReview">'+data_list[i].review+'</p>\
+                        <h4 class="slideshow-clientName">'+data_list[i].name+'</h4>\
+                        <p class="slideshow-clientTitle">'+data_list[i].title+'</p>\
+                     </div>';
+        }
+    return $(target).html(HTML);
+}
+
 
 //------------------------------------------------------- MY BLOGS
 function blogSection( blog_list ) {
@@ -106,18 +159,17 @@ function fixBlogPostHeights() {
         n = [];
     for ( var k=0; k<kiekis; k++ ) {
         height = $('#blog_list > .blog > .blog-summary').eq(k).outerHeight();
-        console.log("read array element: "+k+" read height: "+height);
+        // console.log("read array element: "+k+" read height: "+height);
         n.push(height);
             if ( height > max_height ) {
                 max_height = height;
             }
-        }
+    }
     for ( var h=0; h<kiekis; h++ ) {
             $('#blog_list > .blog > .blog-summary').eq(h).css('height', max_height+'px'); // prailgina sektorius
             summary_height = height - n[h] + 20;
             $('#blog_list > .blog > .blog-summary > p').eq(h).css('padding-bottom', summary_height+'px');
-          }
-
+    }
     return;
 }
 
